@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentynkowe pytanie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8d0d6; /* Pudrowy róż */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #e91e63; /* Czerwony */
+            font-weight: bold;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 20px;
+            background-color: #e91e63; /* Czerwony */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #c2185b; /* Ciemniejszy czerwony */
+        }
+
+        #responseMessage {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #4CAF50; /* Zielony */
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Czy zostaniesz moją walentynką?</h1>
+        <button id="yesButton">Tak</button>
+        <button id="noButton">Nie</button>
+        <p id="responseMessage" class="hidden"></p>
+    </div>
+
+    <script>
+        document.getElementById('yesButton').addEventListener('click', function() {
+            const responseMessage = document.getElementById('responseMessage');
+            responseMessage.textContent = "Super! Bardzo się cieszę! ❤️❤️❤️";
+            responseMessage.classList.remove('hidden');
+        });
+
+        document.getElementById('noButton').addEventListener('click', function() {
+            const noButton = document.getElementById('noButton');
+            
+            // Losowe pozycjonowanie przycisku "Nie"
+            const randomX = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight));
+            
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        });
+    </script>
+</body>
+</html>
+
